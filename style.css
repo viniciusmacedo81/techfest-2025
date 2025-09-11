@@ -14,12 +14,12 @@ body {
 
 /* Header */
 #hero-section {
-    background: linear-gradient(135deg, #1f2b45, #3a506b); /* Azul escuro e cinza azulado */
+    background: linear-gradient(135deg, #1f2b45, #3a506b);
     color: #fff;
     text-align: center;
     padding: 100px 20px;
-    position: relative; /* Para posicionar elementos decorativos */
-    overflow: hidden; /* Para garantir que os "detalhes" não saiam da seção */
+    position: relative;
+    overflow: hidden;
 }
 
 #hero-section h1 {
@@ -33,66 +33,88 @@ body {
     font-weight: 400;
 }
 
-/* Detalhe verde no header (canto inferior direito) */
 #hero-section::after {
     content: '';
     position: absolute;
-    bottom: -50px; /* Ajuste para onde você quer que ele comece */
-    right: -50px; /* Ajuste para onde você quer que ele comece */
-    width: 200px; /* Tamanho do círculo */
-    height: 200px; /* Tamanho do círculo */
-    background-color: #7ED321; /* Verde da logo */
+    bottom: -50px;
+    right: -50px;
+    width: 200px;
+    height: 200px;
+    background-color: #7ED321;
     border-radius: 50%;
-    opacity: 0.1; /* Transparência para ser um detalhe sutil */
+    opacity: 0.1;
     z-index: 0;
 }
 
+.button-group {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 20px;
+}
 
 .cta-button {
-    background-color: #4a90e2; /* Azul */
+    background-color: #4a90e2;
     color: #fff;
     border: none;
     padding: 15px 30px;
     font-size: 1em;
     border-radius: 5px;
     cursor: pointer;
-    margin-top: 20px;
     transition: background-color 0.3s ease;
 }
 
 .cta-button:hover {
-    background-color: #357bd9; /* Azul mais escuro */
+    background-color: #357bd9;
 }
 
 /* Sections */
 section {
     padding: 60px 0;
     text-align: center;
-    position: relative; /* Para posicionar elementos decorativos */
-    overflow: hidden; /* Para garantir que os "detalhes" não saiam da seção */
+    position: relative;
+    overflow: hidden;
 }
 
 section h2 {
-    color: #1f2b45; /* Cor do título principal */
+    color: #1f2b45;
     font-size: 2.5em;
     margin-bottom: 40px;
 }
 
-/* How It Works Section */
+.hidden-section {
+    display: none;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+#map-demo:target,
+#forecast-demo:target {
+    display: block;
+    opacity: 1;
+}
+
+.map-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+}
+
 #how-it-works {
     background-color: #fff;
 }
 
-/* Detalhe verde na seção "Como Funciona?" (borda inferior) */
 #how-it-works::before {
     content: '';
     position: absolute;
     bottom: 0;
     left: 0;
     width: 100%;
-    height: 5px; /* Uma linha fina verde */
-    background-color: #7ED321; /* Verde da logo */
-    opacity: 0.8; /* Um pouco de transparência */
+    height: 5px;
+    background-color: #7ED321;
+    opacity: 0.8;
 }
 
 .step-container {
@@ -110,12 +132,12 @@ section h2 {
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease;
-    border-left: 5px solid transparent; /* Borda para animar */
+    border-left: 5px solid transparent;
 }
 
 .step:hover {
     transform: translateY(-5px);
-    border-left-color: #7ED321; /* Verde no hover */
+    border-left-color: #7ED321;
 }
 
 .step h3 {
@@ -129,7 +151,6 @@ section h2 {
     background-color: #eef3f6;
 }
 
-/* Detalhe verde na seção "Benefícios" (triângulo no canto superior esquerdo) */
 #benefits::after {
     content: '';
     position: absolute;
@@ -138,8 +159,8 @@ section h2 {
     width: 0;
     height: 0;
     border-style: solid;
-    border-width: 0 0 100px 100px; /* Cria um triângulo */
-    border-color: transparent transparent transparent #7ED321; /* Cor verde */
+    border-width: 0 0 100px 100px;
+    border-color: transparent transparent transparent #7ED321;
     opacity: 0.1;
     z-index: 0;
 }
@@ -156,19 +177,36 @@ section h2 {
 #benefits li {
     background-color: #fff;
     width: 100%;
-    max-width: 600px; /* Limita a largura para melhor leitura */
+    max-width: 600px;
     padding: 15px;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-    text-align: left; /* Alinha o texto à esquerda dentro do item */
-    border-right: 3px solid transparent; /* Borda para animar */
+    text-align: left;
+    border-right: 3px solid transparent;
     transition: border-right-color 0.3s ease;
 }
 
 #benefits li:hover {
-    border-right-color: #7ED321; /* Verde no hover */
+    border-right-color: #7ED321;
 }
 
+/* Footer */
+#footer {
+    background-color: #1f2b45;
+    color: #f4f7f9;
+    text-align: center;
+    padding: 40px 20px;
+}
+
+.footer-logo {
+    max-width: 80px;
+    margin-bottom: 10px;
+    filter: invert(100%);
+}
+
+html {
+    scroll-behavior: smooth;
+}
 
 @media (max-width: 768px) {
     .step-container {
@@ -178,39 +216,6 @@ section h2 {
 
     #hero-section::after,
     #benefits::after {
-        display: none; /* Esconde os detalhes em telas menores se preferir */
+        display: none;
     }
-}
-/* Adicione esta regra ao seu CSS */
-/* Adicione esta regra ao seu CSS */
-.hidden-section {
-    display: none; /* Esconde a seção por padrão */
-    opacity: 0;
-    transition: opacity 0.5s ease-in-out;
-}
-
-/* Adicione esta regra para a imagem do mapa */
-.map-image {
-    max-width: 100%;
-    height: auto;
-    border-radius: 10px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    margin-top: 20px;
-}
-
-/* Para o botão CTA, use um pseudo-seletor para o link */
-.cta-button {
-    /* Mantenha o estilo do botão existente */
-}
-
-/* Este é o "truque" para a demonstração */
-/* O seletor `:target` detecta quando a URL da página tem o #map-demo */
-#map-demo:target {
-    display: block; /* Mostra a seção quando a URL aponta para ela */
-    opacity: 1;
-}
-
-/* Efeito de rolagem suave */
-html {
-    scroll-behavior: smooth;
 }
